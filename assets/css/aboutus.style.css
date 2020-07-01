@@ -277,6 +277,7 @@ display: none;
 
 .mission_vision .row:last-child{
   flex-direction: column-reverse;
+  margin-top: -70px;
 }
 
 .mission_text, .vision_text{
@@ -291,4 +292,9 @@ display: none;
 .mission_img::before, .vision_img::before{
   display: none;
 }
+
+.policy {
+  margin-top: -70px;
 }
+}
+
