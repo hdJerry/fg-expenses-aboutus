@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" >
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
@@ -103,18 +103,18 @@
 
 			<section class="mission_vision">
 
-					<div class="container-fluid">
+				<div class="container-fluid">
 					<div class="row">
 
 
 							<div class="col-lg-5 col-md-5 col-sm-8 offset-lg-1 offset-md-1 offset-sm-0">
-								<div class="mission_img">
+								<div class="mission_img stunts">
 									<img src="./assets/img/aboutus/our_mission.jpg" alt="">
 
 								</div>
 							</div>
 
-							<div class="col-lg-5 col-md-5 col-sm-8 mission_text offset-lg-1 offset-md-1 offset-sm-0">
+							<div class="col-lg-5 col-md-5 col-sm-8 mission_text offset-lg-1 offset-md-1 offset-sm-0 stunts">
 								<h2>
 									Our Mission
 								</h2>
@@ -128,7 +128,7 @@
 						<div class="row">
 
 
-						<div class="col-lg-5 col-md-5 col-sm-8 vision_text offset-lg-1 offset-md-1 offset-sm-0">
+						<div class="col-lg-5 col-md-5 col-sm-8 vision_text offset-lg-1 offset-md-1 offset-sm-0 stunts">
 
 							<h2>
 								Our Vision
@@ -139,8 +139,8 @@
 
 						</div>
 
-						<div class="col-lg-5 col-md-5 col-sm-8 vision_img offset-sm-0">
-							<div class="vision_img">
+						<div class="col-lg-5 col-md-5 col-sm-8 offset-sm-0">
+							<div class="vision_img stunts">
 								<img src="./assets/img/aboutus/our_vision.jpg" alt="">
 
 							</div>
@@ -160,7 +160,7 @@
 						Policy Objectives
 					</h2>
 
-					<div class="commit contents">
+					<div class="commit contents stunts">
 						<h3>
 							Government Commitment to Transparency
 						</h3>
@@ -171,7 +171,7 @@ These guidelines are in fulfillment of the Presidents promise to Nigerians in an
 						</p>
 
 					</div>
-					<div class="partner contents">
+					<div class="partner contents stunts">
 						<h3>
 							Partnership Building for the Fight against Corruption
 						</h3>
@@ -180,7 +180,7 @@ These guidelines are in fulfillment of the Presidents promise to Nigerians in an
 								To facilitate the fight against corruption, it is crucial that more transparency is not only encouraged but also enforced at all levels. These guidelines are aimed at enabling timely availability of financial information to the civil society organizations and the public at large by all MDAs of the Federal Government. Through this initiative, the foundation for a strong partnership against corruption will be laid.
 						</p>
 					</div>
-					<div class="setting contents">
+					<div class="setting contents stunts">
 						<h3>
 							Setting the Threshold for Transparency.
 						</h3>
@@ -189,7 +189,7 @@ These guidelines are in fulfillment of the Presidents promise to Nigerians in an
 							These guidelines are also aimed at setting the minimum requirements for financial transparency by all MDAs. While full and complete disclosure should be encouraged, a minimum needs to be set to ensure that non-compliance can be established and addressed.
 						</p>
 					</div>
-					<div class="responsible contents">
+					<div class="responsible contents stunts">
 						<h3>
 							Defining Responsibility for Transparency
 						</h3>
@@ -264,7 +264,7 @@ In addition to the responsibility for publication outlined in section 2.2, all M
                             <a href="index.html"><small>Government handles</small></a>
                         </li>
                         <li>
-                            <a href="about.html"><small>About us</small></a>
+                            <a href="index.html"><small>About us</small></a>
                         </li>
                         <li>
 							<a href=""><small>Contact us</small></a>
@@ -295,6 +295,51 @@ In addition to the responsibility for publication outlined in section 2.2, all M
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+// Detect request animation frame
+var scroll = window.requestAnimationFrame ||
+             // IE Fallback
+             function(callback){ window.setTimeout(callback, 1000/60)};
+var elementsToShow = document.querySelectorAll('.stunts');
+
+function loop() {
+
+    Array.prototype.forEach.call(elementsToShow, function(element){
+      if (isElementInViewport(element)) {
+        element.classList.add('is-visible');
+      } else {
+        element.classList.remove('is-visible');
+      }
+    });
+
+    scroll(loop);
+}
+
+// Call the loop for the first time
+loop();
+
+// Helper function from: http://stackoverflow.com/a/7557433/274826
+function isElementInViewport(el) {
+  // special bonus for those using jQuery
+  if (typeof jQuery === "function" && el instanceof jQuery) {
+    el = el[0];
+  }
+  var rect = el.getBoundingClientRect();
+  return (
+    (rect.top <= 0
+      && rect.bottom >= 0)
+    ||
+    (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+    ||
+    (rect.top >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+  );
+}
+
+</script>
 </body>
 </html>
 
