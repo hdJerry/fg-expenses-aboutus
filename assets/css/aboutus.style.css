@@ -9,6 +9,9 @@ body,html{
   overflow-x: hidden;
 }
 
+.back{ 
+	margin-right: -20px;
+}
 
 :root{
   --textxolor: #353A45;
